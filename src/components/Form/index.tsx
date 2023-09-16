@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 
 import useWatch from '../../hooks/useWatch';
+import useWatchDebounce from '../../hooks/useWatchDebounce';
 
 import './style.scss';
 
@@ -8,7 +9,12 @@ function Form() {
   const [name, setName] = useState<string>('');
 
   useWatch(() => {
-    console.log('name', name);
+    console.log('watcher name', name);
+  }, [name]);
+
+  // Render name 1s after user stop typing
+  useWatchDebounce(() => {
+    console.log('debounce name', name);
   }, [name]);
 
   // function handleSubmit(event: FormEvent<HTMLFormElement>) {
