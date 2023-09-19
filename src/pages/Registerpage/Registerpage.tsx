@@ -1,3 +1,3 @@
-export default function RegisterPage(params: type) {
+export default function RegisterPage() {
   return <h2>RegisterPage</h2>;
 }
