@@ -24,6 +24,14 @@ export default function Header() {
         >
           Register
         </NavLink>
+        <NavLink
+          to="/wronglink"
+          className={({ isActive }) =>
+            isActive ? 'nav-link nav-link--active' : 'nav-link'
+          }
+        >
+          Wrong link
+        </NavLink>
       </div>
     </header>
   );
