@@ -1,0 +1,14 @@
+@use '../../styles/variables' as v;
+
+.nav-link {
+  margin: 1rem;
+
+  &:hover:not(&--active) {
+    color: white;
+  }
+
+  &--active {
+    font-size: bold;
+    color: v.$color-primary;
+  }
+}
