@@ -3,8 +3,6 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import useWatch from '../../hooks/useWatch';
 import useWatchDebounce from '../../hooks/useWatchDebounce';
 
-import './Form.scss';
-
 function Form() {
   const [name, setName] = useState<string>('');
 
