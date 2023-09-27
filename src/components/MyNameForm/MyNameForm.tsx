@@ -1,25 +1,34 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import {
+  ChangeEvent,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
 import useWatch from '../../hooks/useWatch';
 import useWatchDebounce from '../../hooks/useWatchDebounce';
+import useDebounce from '../../hooks/useDebounce';
 
 function Form() {
   const [name, setName] = useState<string>('');
+  const debounce = useDebounce(name);
+  console.log('debounce', debounce);
 
   useWatch(() => {
     console.log('watcher name', name);
   }, [name]);
 
+  // Fetch API (optional)
+  // useEffect(() => {
+  //   // Do fetch here...
+  //   // Triggers when "debouncedValue" changes
+  // }, [debouncedValue]);
+
   // Render name 1s after user stop typing
-  useWatchDebounce(() => {
-    console.log('debounce name', name);
-  }, [name]);
-
-  // function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  //   event.preventDefault();
-
-  //   console.log('event', event);
-  // }
+  // useWatchDebounce(() => {
+  //   console.log('debounce name', name);
+  // }, [name]);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     event.preventDefault();
